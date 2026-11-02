@@ -1,0 +1,22 @@
+[project]
+name = "mcp-gateway-study"
+version = "0.1.0"
+description = "Learning project: a tool-level MCP gateway built from scratch"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mcp>=2.3,<3",
+    "fastapi>=0.115",
+    "uvicorn>=0.30",
+    "httpx>=0.28",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.setuptools]
+packages = []
