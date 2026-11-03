@@ -4,7 +4,7 @@
 set -u
 cd "$(dirname "$0")/.."
 
-SERVERS=(math_server notes_server rest_api)
+SERVERS=(math_server notes_server rest_api slow_server)
 PY=.venv/bin/python
 mkdir -p .run
 
@@ -19,7 +19,7 @@ case "${1:-}" in
       echo $! > ".run/$s.pid"
       echo "$s started (pid $!, log .run/$s.log)"
     done
-    echo "math :9001/mcp · notes :9002/mcp · rest :9003 (docs /docs)"
+    echo "math :9001/mcp · notes :9002/mcp · rest :9003 (docs /docs) · slow :9004/mcp (SSE)"
     ;;
   stop)
     for s in "${SERVERS[@]}"; do
