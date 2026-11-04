@@ -9,11 +9,6 @@ from upstreams import math_server, notes_server, rest_api
 pytestmark = pytest.mark.anyio
 
 
-@pytest.fixture
-def anyio_backend():
-    return "asyncio"
-
-
 async def test_math_tools():
     async with Client(math_server.server) as client:
         tools = await client.list_tools()
